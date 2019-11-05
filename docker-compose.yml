@@ -2,6 +2,7 @@ version: '3.5'
 services: 
   redis:
     image: 'redis:latest'
+    command: redis-server --requirepass P@ssw0rd
     ports:
       - "6379:6379"
     restart: always
