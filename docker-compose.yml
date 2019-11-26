@@ -1,8 +1,12 @@
 version: '3.5'
 services: 
   redis:
-    image: 'redis:latest'
-    command: redis-server --requirepass P@ssw0rd
+    image: 'redis:5.0.6'
+    volumes:
+      - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data:/data
+    command:      
+      - /usr/local/etc/redis/redis.conf
     ports:
       - "6379:6379"
     restart: always
